@@ -47,9 +47,30 @@ export const VOCAB_LIBRARY: WordData[] = [
           { en: "The apple was crunchy.", ko: "그 사과는 아삭아삭했어요. (과거형)" }
         ]
       },
-      { en: "She eats an apple.", ko: "그녀는 사과를 먹어요." },
-      { en: "Do you want an apple?", ko: "사과 드릴까요?" },
-      { en: "Apples are sweet.", ko: "사과는 달콤해요." },
+      { 
+        en: "She eats an apple.", 
+        ko: "그녀는 사과를 먹어요.",
+        more: [
+          { en: "They eat apples.", ko: "그들은 사과를 먹어요. (복수형)" },
+          { en: "She is eating an apple.", ko: "그녀는 사과를 먹는 중이에요. (진행형)" }
+        ]
+      },
+      { 
+        en: "Do you want an apple?", 
+        ko: "사과 드릴까요?",
+        more: [
+          { en: "Does he want an apple?", ko: "그는 사과를 원하나요? (3인칭 질문)" },
+          { en: "Did you want an apple?", ko: "사과를 원했었나요? (과거 질문)" }
+        ]
+      },
+      { 
+        en: "Apples are sweet.", 
+        ko: "사과는 달콤해요.",
+        more: [
+          { en: "This apple is sweet.", ko: "이 사과는 달콤해요. (단수형)" },
+          { en: "Were the apples sweet?", ko: "사과들이 달콤했나요? (과거 질문)" }
+        ]
+      },
       { en: "I have a big apple.", ko: "나는 큰 사과를 가지고 있어요." },
       { en: "The apple is on the table.", ko: "사과가 테이블 위에 있어요." },
       { en: "Apple juice is yummy.", ko: "사과 주스는 맛있어요." },
@@ -73,8 +94,22 @@ export const VOCAB_LIBRARY: WordData[] = [
           { en: "My dog wagged its tail.", ko: "내 강아지가 꼬리를 흔들었어요. (과거형)" }
         ]
       },
-      { en: "My dog is small.", ko: "내 강아지는 작아요." },
-      { en: "I play with my dog.", ko: "나는 내 강아지와 놀아요." },
+      { 
+        en: "My dog is small.", 
+        ko: "내 강아지는 작아요.",
+        more: [
+          { en: "Our dogs are small.", ko: "우리 개들은 작아요. (복수형)" },
+          { en: "Was your dog small?", ko: "당신의 강아지는 작았나요? (과거 질문)" }
+        ]
+      },
+      { 
+        en: "I play with my dog.", 
+        ko: "나는 내 강아지와 놀아요.",
+        more: [
+          { en: "He plays with his dog.", ko: "그는 그의 강아지와 놀아요. (3인칭)" },
+          { en: "We played with the dog.", ko: "우리는 그 강아지와 놀았어요. (과거형)" }
+        ]
+      },
       { en: "A dog likes bones.", ko: "개는 뼈다귀를 좋아해요." },
       { en: "The dog is sleeping.", ko: "강아지가 자고 있어요." },
       { en: "Run, dog, run!", ko: "달려라, 강아지야, 달려!" },
@@ -119,7 +154,14 @@ export const VOCAB_LIBRARY: WordData[] = [
     definition: "The color of the sky.",
     koreanMeaning: "파란색: 하늘의 색깔이에요.",
     expressions: [
-      { en: "The sky is blue.", ko: "하늘이 파란색이에요." },
+      { 
+        en: "The sky is blue.", 
+        ko: "하늘이 파란색이에요.",
+        more: [
+          { en: "The sky was blue yesterday.", ko: "어제는 하늘이 파랬어요. (과거형)" },
+          { en: "Why is the sky blue?", ko: "왜 하늘은 파란가요? (질문형)" }
+        ]
+      },
       { en: "I have a blue bag.", ko: "나는 파란 가방을 가지고 있어요." },
       { en: "Blue is my favorite color.", ko: "파란색은 내가 제일 좋아하는 색이에요." },
       { en: "The ocean looks blue.", ko: "바다가 파랗게 보여요." },
@@ -139,7 +181,14 @@ export const VOCAB_LIBRARY: WordData[] = [
     definition: "Part of your arm.",
     koreanMeaning: "손: 팔 끝에 있는 부분이에요.",
     expressions: [
-      { en: "Wash your hands.", ko: "손을 씻으세요." },
+      { 
+        en: "Wash your hands.", 
+        ko: "손을 씻으세요.",
+        more: [
+          { en: "He is washing his hands.", ko: "그는 손을 씻고 있어요. (진행형)" },
+          { en: "Did you wash your hands?", ko: "손을 씻었나요? (과거 질문)" }
+        ]
+      },
       { en: "Hold my hand.", ko: "내 손을 잡으세요." },
       { en: "Raise your hand.", ko: "손을 드세요." },
       { en: "Clap your hands!", ko: "박수를 치세요!" },
@@ -159,7 +208,14 @@ export const VOCAB_LIBRARY: WordData[] = [
     definition: "An outdoor area for children to play.",
     koreanMeaning: "놀이터: 어린이들이 밖에서 뛰어노는 공간이에요.",
     expressions: [
-      { en: "Let's go to the playground.", ko: "놀이터에 가요." },
+      { 
+        en: "Let's go to the playground.", 
+        ko: "놀이터에 가요.",
+        more: [
+          { en: "They went to the playground.", ko: "그들은 놀이터에 갔어요. (과거형)" },
+          { en: "We are going to the playground.", ko: "우리는 놀이터에 가는 중이에요. (진행형)" }
+        ]
+      },
       { en: "I like the slide at the playground.", ko: "나는 놀이터의 미끄럼틀을 좋아해요." },
       { en: "The playground is full of kids.", ko: "놀이터가 아이들로 가득해요." },
       { en: "We play tag at the playground.", ko: "우리는 놀이터에서 술래잡기를 해요." },

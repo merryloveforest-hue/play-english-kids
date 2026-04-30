@@ -228,12 +228,13 @@ const Expressions = ({
                 </button>
               </div>
 
-              <div className="feedback-container">
+              <div className="feedback-container flex-wrap sm:flex-nowrap">
                 <button 
                   onClick={() => onToggleFamiliar(expId)}
                   className={`feedback-btn ${isFamiliar ? 'active like' : ''}`}
+                  title="I know this pattern"
                 >
-                  <CheckCircle2 className="w-4 h-4" /> I know!
+                  <CheckCircle2 className="w-4 h-4" /> Got it!
                 </button>
                 {exp.more && (
                   <button 
