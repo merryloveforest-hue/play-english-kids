@@ -47,37 +47,87 @@ const MascotPraise = ({ message }: { message: string }) => (
   </motion.div>
 );
 
-const Home = ({ onStart }: { onStart: (mode: Mode) => void }) => (
-  <motion.div 
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    className="flex flex-col gap-8 py-4"
-  >
-    <div className="text-center">
-      <h1 className="text-5xl font-black text-gradient mb-2">Play English!</h1>
-      <p className="text-xl font-bold text-gray-500">Let's learn new words today!</p>
-    </div>
+const Home = ({ onStart, likedCategories }: { onStart: (mode: Mode, keyword?: string) => void, likedCategories: string[] }) => {
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
-    <div className="home-btn-container">
-      <button onClick={() => onStart('level')} className="home-btn level">
-        <span>Level Up!</span>
-        <Zap className="w-10 h-10" />
-      </button>
-      <button onClick={() => onStart('random')} className="home-btn random">
-        <span>Random Play</span>
-        <Shuffle className="w-10 h-10" />
-      </button>
-      <button onClick={() => onStart('interests')} className="home-btn interests">
-        <span>My Favorites</span>
-        <Heart className="w-10 h-10 fill-current" />
-      </button>
-    </div>
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      onStart('interests', searchQuery.trim());
+    }
+  };
 
-    <div className="card-bubble bg-white/50 border-dashed text-center">
-      <p className="text-sm font-bold text-gray-400">Lower Elementary Essential Words 🌈</p>
-    </div>
-  </motion.div>
-);
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="flex flex-col gap-8 py-4"
+    >
+      <div className="text-center">
+        <h1 className="text-5xl font-black text-gradient mb-2">Play English!</h1>
+        <p className="text-xl font-bold text-gray-500">Let's learn new words today!</p>
+      </div>
+
+      <div className="home-btn-container">
+        {!isSearching ? (
+          <>
+            <button onClick={() => onStart('level')} className="home-btn level">
+              <span>Level Up!</span>
+              <Zap className="w-10 h-10" />
+            </button>
+            <button onClick={() => onStart('random')} className="home-btn random">
+              <span>Random Play</span>
+              <Shuffle className="w-10 h-10" />
+            </button>
+            <button onClick={() => setIsSearching(true)} className="home-btn interests">
+              <span>My Favorites</span>
+              <Heart className="w-10 h-10 fill-current" />
+            </button>
+          </>
+        ) : (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="card-bubble border-primary flex flex-col gap-4"
+          >
+            <h3 className="text-2xl font-black text-primary">What do you like?</h3>
+            <form onSubmit={handleSearch} className="flex flex-col gap-3">
+              <input 
+                autoFocus
+                type="text" 
+                placeholder="Ex: Cooking, Animals, Space..."
+                className="w-full py-4 px-6 rounded-2xl border-4 border-primary/20 focus:border-primary outline-none text-xl font-bold"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <div className="flex gap-2">
+                <button type="submit" className="btn-chunky flex-1 py-3 text-lg">Search!</button>
+                <button type="button" onClick={() => setIsSearching(false)} className="btn-chunky btn-secondary px-6 py-3 text-lg">Back</button>
+              </div>
+            </form>
+            {likedCategories.length > 0 && (
+              <div className="mt-4">
+                <p className="text-sm font-bold text-gray-400 mb-2">Your favorite topics:</p>
+                <div className="flex flex-wrap gap-2">
+                  {likedCategories.map(cat => (
+                    <span 
+                      key={cat} 
+                      onClick={() => onStart('interests', cat)}
+                      className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold cursor-pointer hover:bg-primary hover:text-white transition-colors"
+                    >
+                      #{cat}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </motion.div>
+        )}
+      </div>
+    </motion.div>
+  );
+};
 
 const ClickableWord = ({ text, targetWord }: { text: string, targetWord: string }) => {
   const [isActive, setIsActive] = useState(false);
@@ -388,7 +438,7 @@ export default function App() {
     return (phases.indexOf(phase) / (phases.length - 1)) * 100;
   }, [phase]);
 
-  const selectWord = (selectedMode: Mode) => {
+  const selectWord = (selectedMode: Mode, keyword?: string) => {
     setMode(selectedMode);
     let word: WordData;
 
@@ -397,10 +447,22 @@ export default function App() {
     } else if (selectedMode === 'random') {
       word = VOCAB_LIBRARY[Math.floor(Math.random() * VOCAB_LIBRARY.length)];
     } else {
-      // Interests mode: Prioritize liked categories
-      const preferred = VOCAB_LIBRARY.filter(w => likedCategories.includes(w.category));
-      word = preferred.length > 0 
-        ? preferred[Math.floor(Math.random() * preferred.length)] 
+      // Interests mode: Search by keyword or prioritize liked categories
+      let pool = VOCAB_LIBRARY;
+      
+      if (keyword) {
+        const lowerKeyword = keyword.toLowerCase();
+        pool = VOCAB_LIBRARY.filter(w => 
+          w.word.toLowerCase().includes(lowerKeyword) || 
+          w.category.toLowerCase().includes(lowerKeyword) ||
+          w.definition.toLowerCase().includes(lowerKeyword)
+        );
+      } else {
+        pool = VOCAB_LIBRARY.filter(w => likedCategories.includes(w.category));
+      }
+
+      word = pool.length > 0 
+        ? pool[Math.floor(Math.random() * pool.length)] 
         : VOCAB_LIBRARY[Math.floor(Math.random() * VOCAB_LIBRARY.length)];
     }
 
@@ -425,7 +487,7 @@ export default function App() {
 
   const renderPhase = () => {
     switch (phase) {
-      case 'home': return <Home onStart={selectWord} />;
+      case 'home': return <Home onStart={selectWord} likedCategories={likedCategories} />;
       case 'intro': return <WordIntro data={currentWord} onNext={() => setPhase('expressions')} />;
       case 'expressions': return (
         <Expressions 
@@ -440,7 +502,7 @@ export default function App() {
       case 'test': return <SpellingTest word={currentWord.word} onFinish={() => setPhase('activity')} />;
       case 'activity': return <Activity data={currentWord} onFinish={() => setPhase('congrats')} />;
       case 'congrats': return <Congrats onHome={handleFinish} />;
-      default: return <Home onStart={selectWord} />;
+      default: return <Home onStart={selectWord} likedCategories={likedCategories} />;
     }
   };
 
