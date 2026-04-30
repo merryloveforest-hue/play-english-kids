@@ -109,11 +109,33 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Highlighting */
+/* Highlighting & Interaction */
 .highlight-phonics {
   font-weight: 800;
   text-decoration: underline;
   color: var(--primary);
+}
+
+.clickable-word {
+  display: inline-block;
+  cursor: pointer;
+  color: var(--primary);
+  font-weight: 800;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 0 4px;
+  border-radius: 8px;
+}
+
+.clickable-word:hover {
+  background-color: rgba(255, 107, 107, 0.1);
+  transform: scale(1.1);
+}
+
+.clickable-word.active {
+  color: #fff;
+  background-color: var(--primary);
+  transform: scale(1.2) rotate(3deg);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
 
 .highlight-error {
@@ -121,6 +143,64 @@ body {
   text-decoration: wavy underline;
   animation: shake 0.2s;
 }
+
+/* Home Screen Buttons */
+.home-btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.home-btn {
+  width: 100%;
+  padding: 2rem;
+  border-radius: 30px;
+  border: 4px solid white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.home-btn:hover {
+  transform: scale(1.02);
+}
+
+.home-btn.level { background: linear-gradient(135deg, #FF6B6B, #FF9F43); }
+.home-btn.random { background: linear-gradient(135deg, #4ECDC4, #6C5CE7); }
+.home-btn.interests { background: linear-gradient(135deg, #FFE66D, #FF9F43); color: #2F2F2F; }
+
+/* Feedback Buttons */
+.feedback-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.feedback-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #f0f0f0;
+  color: #666;
+  border: none;
+}
+
+.feedback-btn.active.like { background: #ffebeb; color: #ff6b6b; }
+.feedback-btn.active.easy { background: #e6fffa; color: #38b2ac; }
+.feedback-btn.active.hard { background: #fffaf0; color: #dd6b20; }
 
 /* Responsive Container */
 .app-container {
