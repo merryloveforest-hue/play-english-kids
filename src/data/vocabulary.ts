@@ -1,11 +1,17 @@
+export interface Expression {
+  en: string;
+  ko: string;
+  more?: { en: string; ko: string }[]; // Variations like tenses, plural/singular
+}
+
 export interface WordData {
   word: string;
   category: string;
-  level: number; // 1: 3rd Grade, 2: 4th Grade, 3: 5th-6th Grade
+  level: number;
   phonics: { text: string; highlight: string[] };
   definition: string;
   koreanMeaning: string;
-  expressions: { en: string; ko: string }[];
+  expressions: Expression[];
   activity: {
     title: string;
     description: string;
@@ -24,8 +30,23 @@ export const VOCAB_LIBRARY: WordData[] = [
     definition: "A round fruit.",
     koreanMeaning: "사과: 둥근 과일이에요.",
     expressions: [
-      { en: "I like red apples.", ko: "나는 빨간 사과를 좋아해요." },
-      { en: "An apple is crunchy.", ko: "사과는 아삭아삭해요." },
+      { 
+        en: "I like an apple.", 
+        ko: "나는 사과 하나를 좋아해요.",
+        more: [
+          { en: "We like apples.", ko: "우리는 사과들을 좋아해요. (복수형)" },
+          { en: "He likes an apple.", ko: "그는 사과 하나를 좋아해요. (3인칭 단수)" },
+          { en: "I liked the apple.", ko: "나는 그 사과를 좋아했어요. (과거형)" }
+        ]
+      },
+      { 
+        en: "An apple is crunchy.", 
+        ko: "사과는 아삭아삭해요.",
+        more: [
+          { en: "Apples are crunchy.", ko: "사과들은 아삭아삭해요. (복수형)" },
+          { en: "The apple was crunchy.", ko: "그 사과는 아삭아삭했어요. (과거형)" }
+        ]
+      },
       { en: "She eats an apple.", ko: "그녀는 사과를 먹어요." },
       { en: "Do you want an apple?", ko: "사과 드릴까요?" },
       { en: "Apples are sweet.", ko: "사과는 달콤해요." },
@@ -44,8 +65,15 @@ export const VOCAB_LIBRARY: WordData[] = [
     definition: "A common pet.",
     koreanMeaning: "개: 흔히 기르는 반려동물이에요.",
     expressions: [
+      { 
+        en: "The dog wags its tail.", 
+        ko: "개가 꼬리를 흔들어요.",
+        more: [
+          { en: "The dogs wag their tails.", ko: "개들이 꼬리를 흔들어요. (복수형)" },
+          { en: "My dog wagged its tail.", ko: "내 강아지가 꼬리를 흔들었어요. (과거형)" }
+        ]
+      },
       { en: "My dog is small.", ko: "내 강아지는 작아요." },
-      { en: "The dog wags its tail.", ko: "개가 꼬리를 흔들어요." },
       { en: "I play with my dog.", ko: "나는 내 강아지와 놀아요." },
       { en: "A dog likes bones.", ko: "개는 뼈다귀를 좋아해요." },
       { en: "The dog is sleeping.", ko: "강아지가 자고 있어요." },
@@ -55,6 +83,33 @@ export const VOCAB_LIBRARY: WordData[] = [
       { en: "The dog is very cute.", ko: "강아지가 아주 귀여워요." }
     ],
     activity: { title: "Origami Dog", description: "Fold a paper to make a dog!", materials: ["Square paper"], songUrl: "https://www.youtube.com/embed/4S-mC6_N9uU" }
+  },
+  {
+    word: "Blocks",
+    category: "Play",
+    level: 1,
+    phonics: { text: "B-l-o-c-k-s", highlight: ["o"] },
+    definition: "Small building pieces.",
+    koreanMeaning: "블록: 장난감 조각이에요.",
+    expressions: [
+      { 
+        en: "I build a tower.", 
+        ko: "나는 탑을 쌓아요.",
+        more: [
+          { en: "We are building a tower.", ko: "우리는 탑을 쌓는 중이에요. (진행형)" },
+          { en: "She built a big tower.", ko: "그녀는 큰 탑을 쌓았어요. (과거형)" }
+        ]
+      },
+      { en: "Do you have Lego blocks?", ko: "레고 블록이 있나요?" },
+      { en: "Let's play with blocks together.", ko: "함께 블록 놀이를 해요." },
+      { en: "The blocks are colorful.", ko: "블록들이 알록달록해요." },
+      { en: "Make a house with blocks.", ko: "블록으로 집을 만드세요." },
+      { en: "I need more blue blocks.", ko: "나는 파란 블록이 더 필요해요." },
+      { en: "Clean up your blocks, please.", ko: "블록을 정리해 주세요." },
+      { en: "The blocks are on the rug.", ko: "블록들이 카펫 위에 있어요." },
+      { en: "Building with blocks is fun.", ko: "블록 쌓기는 재미있어요." }
+    ],
+    activity: { title: "Block Challenge", description: "Build the tallest tower you can!", materials: ["Blocks"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
   },
   {
     word: "Blue",
@@ -96,6 +151,26 @@ export const VOCAB_LIBRARY: WordData[] = [
     ],
     activity: { title: "Hand Print", description: "Make hand print art!", materials: ["Paint"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
   },
+  {
+    word: "Playground",
+    category: "Play",
+    level: 1,
+    phonics: { text: "Play-ground", highlight: ["ay"] },
+    definition: "An outdoor area for children to play.",
+    koreanMeaning: "놀이터: 어린이들이 밖에서 뛰어노는 공간이에요.",
+    expressions: [
+      { en: "Let's go to the playground.", ko: "놀이터에 가요." },
+      { en: "I like the slide at the playground.", ko: "나는 놀이터의 미끄럼틀을 좋아해요." },
+      { en: "The playground is full of kids.", ko: "놀이터가 아이들로 가득해요." },
+      { en: "We play tag at the playground.", ko: "우리는 놀이터에서 술래잡기를 해요." },
+      { en: "Be careful at the playground.", ko: "놀이터에서는 조심하세요." },
+      { en: "The playground has many swings.", ko: "놀이터에는 그네가 많이 있어요." },
+      { en: "Let's meet at the playground.", ko: "놀이터에서 만나요." },
+      { en: "I am happy at the playground.", ko: "나는 놀이터에 있으면 행복해요." },
+      { en: "The playground is near my house.", ko: "놀이터는 우리 집 근처에 있어요." }
+    ],
+    activity: { title: "Playground Map", description: "Draw your dream playground!", materials: ["Paper", "Markers"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
+  },
 
   // --- Level 2: Intermediate (4th Grade Level) ---
   {
@@ -119,6 +194,33 @@ export const VOCAB_LIBRARY: WordData[] = [
     activity: { title: "Role Play", description: "Be a teacher!", materials: ["Books"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
   },
   {
+    word: "Bicycle",
+    category: "Play",
+    level: 2,
+    phonics: { text: "Bi-cy-cle", highlight: ["cy"] },
+    definition: "A two-wheeled vehicle.",
+    koreanMeaning: "자전거: 페달을 밟아 타는 바퀴가 두 개인 탈것이에요.",
+    expressions: [
+      { 
+        en: "I can ride a bicycle.", 
+        ko: "나는 자전거를 탈 수 있어요.",
+        more: [
+          { en: "He can't ride a bicycle yet.", ko: "그는 아직 자전거를 못 타요. (부정형)" },
+          { en: "They are riding bicycles.", ko: "그들은 자전거를 타고 있어요. (복수/진행형)" }
+        ]
+      },
+      { en: "Wear a helmet on your bicycle.", ko: "자전거를 탈 때는 헬멧을 쓰세요." },
+      { en: "My bicycle is red and fast.", ko: "내 자전거는 빨간색이고 빨라요." },
+      { en: "Let's ride bicycles in the park.", ko: "공원에서 자전거를 타요." },
+      { en: "I wash my bicycle.", ko: "나는 내 자전거를 세차해요." },
+      { en: "The bicycle has a bell.", ko: "자전거에 벨이 달려 있어요." },
+      { en: "Check your bicycle tires.", ko: "자전거 타이어를 확인하세요." },
+      { en: "I go to school by bicycle.", ko: "나는 자전거를 타고 학교에 가요." },
+      { en: "Riding a bicycle is good exercise.", ko: "자전거 타기는 좋은 운동이에요." }
+    ],
+    activity: { title: "Bicycle Safety", description: "Draw a helmet for your bicycle!", materials: ["Crayons"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
+  },
+  {
     word: "Rainy",
     category: "Weather",
     level: 2,
@@ -137,6 +239,26 @@ export const VOCAB_LIBRARY: WordData[] = [
       { en: "Stay home on a rainy night.", ko: "비 오는 밤에는 집에 머무세요." }
     ],
     activity: { title: "Paper Umbrella", description: "Make a paper umbrella!", materials: ["Paper", "Straw"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
+  },
+  {
+    word: "Instrument",
+    category: "Music",
+    level: 2,
+    phonics: { text: "In-stru-ment", highlight: ["ment"] },
+    definition: "An object for music.",
+    koreanMeaning: "악기: 소리를 만드는 도구예요.",
+    expressions: [
+      { en: "The piano is a large instrument.", ko: "피아노는 커다란 악기예요." },
+      { en: "What instrument do you play?", ko: "어떤 악기를 연주하나요?" },
+      { en: "I want to learn a new instrument.", ko: "나는 새로운 악기를 배우고 싶어요." },
+      { en: "A guitar is a popular instrument.", ko: "기타는 인기 있는 악기예요." },
+      { en: "Practice your instrument every day.", ko: "매일 악기 연습을 하세요." },
+      { en: "The violin is a beautiful instrument.", ko: "바이올린은 아름다운 악기예요." },
+      { en: "Listen to the sound of the instrument.", ko: "악기 소리에 귀를 기울여 보세요." },
+      { en: "We play instruments in music class.", ko: "우리는 음악 시간에 악기를 연주해요." },
+      { en: "A drum is a loud instrument.", ko: "드럼은 소리가 큰 악기예요." }
+    ],
+    activity: { title: "Homemade Shaker", description: "Make a musical instrument with beans!", materials: ["Cup", "Beans"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
   },
   {
     word: "Morning",
@@ -219,87 +341,5 @@ export const VOCAB_LIBRARY: WordData[] = [
       { en: "Share your wisdom with others.", ko: "당신의 지혜를 다른 사람들과 나누세요." }
     ],
     activity: { title: "Advice Tree", description: "Write one piece of wisdom!", materials: ["Green paper"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
-  },
-
-  // --- Level 1 & 2: Play & Hobbies (User Requested) ---
-  {
-    word: "Blocks",
-    category: "Play",
-    level: 1,
-    phonics: { text: "B-l-o-c-k-s", highlight: ["o"] },
-    definition: "Small plastic or wooden pieces used to build things.",
-    koreanMeaning: "블록: 무언가를 만드는 데 사용하는 작은 플라스틱이나 나무 조각이에요.",
-    expressions: [
-      { en: "I build a tower with blocks.", ko: "나는 블록으로 탑을 쌓아요." },
-      { en: "Do you have Lego blocks?", ko: "레고 블록이 있나요?" },
-      { en: "Let's play with blocks together.", ko: "함께 블록 놀이를 해요." },
-      { en: "The blocks are colorful.", ko: "블록들이 알록달록해요." },
-      { en: "Make a house with blocks.", ko: "블록으로 집을 만드세요." },
-      { en: "I need more blue blocks.", ko: "나는 파란 블록이 더 필요해요." },
-      { en: "Clean up your blocks, please.", ko: "블록을 정리해 주세요." },
-      { en: "The blocks are on the rug.", ko: "블록들이 카펫 위에 있어요." },
-      { en: "Building with blocks is fun.", ko: "블록 쌓기는 재미있어요." }
-    ],
-    activity: { title: "Block Challenge", description: "Build the tallest tower you can!", materials: ["Blocks"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
-  },
-  {
-    word: "Playground",
-    category: "Play",
-    level: 1,
-    phonics: { text: "Play-ground", highlight: ["ay"] },
-    definition: "An outdoor area for children to play.",
-    koreanMeaning: "놀이터: 어린이들이 밖에서 뛰어노는 공간이에요.",
-    expressions: [
-      { en: "Let's go to the playground.", ko: "놀이터에 가요." },
-      { en: "I like the slide at the playground.", ko: "나는 놀이터의 미끄럼틀을 좋아해요." },
-      { en: "The playground is full of kids.", ko: "놀이터가 아이들로 가득해요." },
-      { en: "We play tag at the playground.", ko: "우리는 놀이터에서 술래잡기를 해요." },
-      { en: "Be careful at the playground.", ko: "놀이터에서는 조심하세요." },
-      { en: "The playground has many swings.", ko: "놀이터에는 그네가 많이 있어요." },
-      { en: "Let's meet at the playground.", ko: "놀이터에서 만나요." },
-      { en: "I am happy at the playground.", ko: "나는 놀이터에 있으면 행복해요." },
-      { en: "The playground is near my house.", ko: "놀이터는 우리 집 근처에 있어요." }
-    ],
-    activity: { title: "Playground Map", description: "Draw your dream playground!", materials: ["Paper", "Markers"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
-  },
-  {
-    word: "Bicycle",
-    category: "Play",
-    level: 2,
-    phonics: { text: "Bi-cy-cle", highlight: ["cy"] },
-    definition: "A vehicle with two wheels that you ride by pushing pedals.",
-    koreanMeaning: "자전거: 페달을 밟아 타는 바퀴가 두 개인 탈것이에요.",
-    expressions: [
-      { en: "I can ride a bicycle.", ko: "나는 자전거를 탈 수 있어요." },
-      { en: "Wear a helmet on your bicycle.", ko: "자전거를 탈 때는 헬멧을 쓰세요." },
-      { en: "My bicycle is red and fast.", ko: "내 자전거는 빨간색이고 빨라요." },
-      { en: "Let's ride bicycles in the park.", ko: "공원에서 자전거를 타요." },
-      { en: "I wash my bicycle.", ko: "나는 내 자전거를 세차해요." },
-      { en: "The bicycle has a bell.", ko: "자전거에 벨이 달려 있어요." },
-      { en: "Check your bicycle tires.", ko: "자전거 타이어를 확인하세요." },
-      { en: "I go to school by bicycle.", ko: "나는 자전거를 타고 학교에 가요." },
-      { en: "Riding a bicycle is good exercise.", ko: "자전거 타기는 좋은 운동이에요." }
-    ],
-    activity: { title: "Bicycle Safety", description: "Draw a helmet for your bicycle!", materials: ["Crayons"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
-  },
-  {
-    word: "Instrument",
-    category: "Music",
-    level: 2,
-    phonics: { text: "In-stru-ment", highlight: ["ment"] },
-    definition: "An object used for producing musical sounds.",
-    koreanMeaning: "악기: 음악 소리를 만드는 데 사용되는 도구예요.",
-    expressions: [
-      { en: "The piano is a large instrument.", ko: "피아노는 커다란 악기예요." },
-      { en: "What instrument do you play?", ko: "어떤 악기를 연주하나요?" },
-      { en: "I want to learn a new instrument.", ko: "나는 새로운 악기를 배우고 싶어요." },
-      { en: "A guitar is a popular instrument.", ko: "기타는 인기 있는 악기예요." },
-      { en: "Practice your instrument every day.", ko: "매일 악기 연습을 하세요." },
-      { en: "The violin is a beautiful instrument.", ko: "바이올린은 아름다운 악기예요." },
-      { en: "Listen to the sound of the instrument.", ko: "악기 소리에 귀를 기울여 보세요." },
-      { en: "We play instruments in music class.", ko: "우리는 음악 시간에 악기를 연주해요." },
-      { en: "A drum is a loud instrument.", ko: "드럼은 소리가 큰 악기예요." }
-    ],
-    activity: { title: "Homemade Shaker", description: "Make a musical instrument with beans!", materials: ["Cup", "Beans"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
   }
 ];

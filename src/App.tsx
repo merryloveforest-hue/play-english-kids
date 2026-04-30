@@ -166,27 +166,23 @@ const Expressions = ({
   data, 
   onNext, 
   onToggleFamiliar, 
-  onToggleLike,
   onSetDifficulty,
   familiarExpressions,
-  likedCategories,
   difficultyMap 
 }: { 
   data: WordData, 
   onNext: () => void,
   onToggleFamiliar: (id: string) => void,
-  onToggleLike: (category: string) => void,
   onSetDifficulty: (id: string, diff: 'easy' | 'hard') => void,
   familiarExpressions: string[],
-  likedCategories: string[],
   difficultyMap: Record<string, 'easy' | 'hard'>
 }) => {
   const [page, setPage] = useState(0);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
   const itemsPerPage = 3;
-  const totalPages = 3; // Show 9 sentences total across 3 pages
+  const totalPages = 3; 
   
   const currentItems = data.expressions.slice(page * itemsPerPage, (page + 1) * itemsPerPage);
-  const isCategoryLiked = likedCategories.includes(data.category);
 
   return (
     <motion.div 
@@ -195,18 +191,9 @@ const Expressions = ({
       className="flex flex-col gap-6"
     >
       <div className="flex justify-between items-center">
-        <div className="flex items-center gap-3">
-          <h2 className="text-2xl font-black text-gradient">
-            Step {page + 1}: Let's practice!
-          </h2>
-          <button 
-            onClick={() => onToggleLike(data.category)}
-            className={`p-2 rounded-full transition-all ${isCategoryLiked ? 'bg-red-50 text-red-500 scale-110' : 'bg-gray-100 text-gray-400 hover:scale-110'}`}
-            title="Like this topic"
-          >
-            <Heart className={`w-5 h-5 ${isCategoryLiked ? 'fill-current' : ''}`} />
-          </button>
-        </div>
+        <h2 className="text-2xl font-black text-gradient">
+          Step {page + 1}: Let's practice!
+        </h2>
         <div className="flex gap-2">
           {Array.from({ length: totalPages }).map((_, i) => (
             <div key={i} className={`w-3 h-3 rounded-full ${i === page ? 'bg-primary' : 'bg-gray-200'}`} />
@@ -219,6 +206,7 @@ const Expressions = ({
           const expId = `${data.word}_${page * itemsPerPage + i}`;
           const currentDiff = difficultyMap[expId];
           const isFamiliar = familiarExpressions.includes(expId);
+          const isExpanded = expandedId === expId;
 
           return (
             <motion.div 
@@ -226,7 +214,7 @@ const Expressions = ({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="card-bubble py-6 flex flex-col gap-4 border-2 hover:border-primary transition-colors"
+              className="card-bubble py-6 flex flex-col gap-4 border-2 hover:border-primary transition-colors overflow-hidden"
             >
               <div className="flex justify-between items-start gap-4">
                 <div className="flex-1 overflow-hidden">
@@ -245,21 +233,47 @@ const Expressions = ({
                   onClick={() => onToggleFamiliar(expId)}
                   className={`feedback-btn ${isFamiliar ? 'active like' : ''}`}
                 >
-                  <CheckCircle2 className={`w-4 h-4 ${isFamiliar ? 'text-primary' : ''}`} /> I know this!
+                  <CheckCircle2 className="w-4 h-4" /> I know!
                 </button>
+                {exp.more && (
+                  <button 
+                    onClick={() => setExpandedId(isExpanded ? null : expId)}
+                    className={`feedback-btn ${isExpanded ? 'active' : 'bg-quaternary/10 text-quaternary border-quaternary/20'}`}
+                  >
+                    <Sparkles className="w-4 h-4" /> More
+                  </button>
+                )}
                 <button 
                   onClick={() => onSetDifficulty(expId, 'easy')}
                   className={`feedback-btn ${currentDiff === 'easy' ? 'active easy' : ''}`}
                 >
-                  <Smile className="w-4 h-4" /> Easy!
+                  <Smile className="w-4 h-4" /> Easy
                 </button>
                 <button 
                   onClick={() => onSetDifficulty(expId, 'hard')}
                   className={`feedback-btn ${currentDiff === 'hard' ? 'active hard' : ''}`}
                 >
-                  <Frown className="w-4 h-4" /> Hard...
+                  <Frown className="w-4 h-4" /> Hard
                 </button>
               </div>
+
+              <AnimatePresence>
+                {isExpanded && exp.more && (
+                  <motion.div 
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="mt-2 p-4 bg-quaternary/5 rounded-xl border-l-4 border-quaternary flex flex-col gap-3"
+                  >
+                    {exp.more.map((v, vi) => (
+                      <div key={vi} className="text-sm">
+                        <p className="font-bold text-quaternary">{v.en}</p>
+                        <p className="text-gray-500 text-xs">{v.ko}</p>
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           );
         })}
@@ -430,7 +444,17 @@ const Activity = ({ data, onFinish }: { data: WordData, onFinish: () => void }) 
   </motion.div>
 );
 
-const Congrats = ({ onHome }: { onHome: () => void }) => (
+const Congrats = ({ 
+  category, 
+  isLiked, 
+  onToggleLike, 
+  onHome 
+}: { 
+  category: string, 
+  isLiked: boolean, 
+  onToggleLike: (cat: string) => void, 
+  onHome: () => void 
+}) => (
   <motion.div 
     initial={{ scale: 0 }}
     animate={{ scale: 1 }}
@@ -439,7 +463,19 @@ const Congrats = ({ onHome }: { onHome: () => void }) => (
     <Trophy className="w-32 h-32 text-tertiary animate-bounce" />
     <h1 className="text-6xl font-black text-gradient text-center">AWESOME!</h1>
     <p className="text-2xl font-bold text-center">You've mastered this word!</p>
-    <button onClick={onHome} className="btn-chunky">Back Home</button>
+    
+    <div className="flex flex-col items-center gap-4 mt-4">
+      <p className="text-gray-400 font-bold">Want to learn more about "{category}"?</p>
+      <button 
+        onClick={() => onToggleLike(category)}
+        className={`btn-chunky flex items-center gap-2 ${isLiked ? 'bg-red-500 border-red-700' : 'btn-secondary'}`}
+      >
+        <Heart className={`w-6 h-6 ${isLiked ? 'fill-current' : ''}`} />
+        {isLiked ? 'I love this topic!' : 'Like this topic!'}
+      </button>
+    </div>
+
+    <button onClick={onHome} className="btn-chunky mt-8">Back Home</button>
     <MascotPraise message="You're getting smarter every day!" />
   </motion.div>
 );
@@ -545,7 +581,14 @@ export default function App() {
       );
       case 'test': return <SpellingTest word={currentWord.word} onFinish={() => setPhase('activity')} />;
       case 'activity': return <Activity data={currentWord} onFinish={() => setPhase('congrats')} />;
-      case 'congrats': return <Congrats onHome={handleFinish} />;
+      case 'congrats': return (
+        <Congrats 
+          category={currentWord.category}
+          isLiked={likedCategories.includes(currentWord.category)}
+          onToggleLike={toggleLike}
+          onHome={handleFinish} 
+        />
+      );
       default: return <Home onStart={selectWord} likedCategories={likedCategories} />;
     }
   };
