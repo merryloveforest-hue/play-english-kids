@@ -165,15 +165,19 @@ const ClickableWord = ({ text, targetWord }: { text: string, targetWord: string 
 const Expressions = ({ 
   data, 
   onNext, 
-  onToggleLike, 
+  onToggleFamiliar, 
+  onToggleLike,
   onSetDifficulty,
+  familiarExpressions,
   likedCategories,
   difficultyMap 
 }: { 
   data: WordData, 
   onNext: () => void,
+  onToggleFamiliar: (id: string) => void,
   onToggleLike: (category: string) => void,
   onSetDifficulty: (id: string, diff: 'easy' | 'hard') => void,
+  familiarExpressions: string[],
   likedCategories: string[],
   difficultyMap: Record<string, 'easy' | 'hard'>
 }) => {
@@ -182,7 +186,7 @@ const Expressions = ({
   const totalPages = 3; // Show 9 sentences total across 3 pages
   
   const currentItems = data.expressions.slice(page * itemsPerPage, (page + 1) * itemsPerPage);
-  const isLiked = likedCategories.includes(data.category);
+  const isCategoryLiked = likedCategories.includes(data.category);
 
   return (
     <motion.div 
@@ -191,9 +195,18 @@ const Expressions = ({
       className="flex flex-col gap-6"
     >
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-black text-gradient">
-          Step {page + 1}: Let's practice!
-        </h2>
+        <div className="flex items-center gap-3">
+          <h2 className="text-2xl font-black text-gradient">
+            Step {page + 1}: Let's practice!
+          </h2>
+          <button 
+            onClick={() => onToggleLike(data.category)}
+            className={`p-2 rounded-full transition-all ${isCategoryLiked ? 'bg-red-50 text-red-500 scale-110' : 'bg-gray-100 text-gray-400 hover:scale-110'}`}
+            title="Like this topic"
+          >
+            <Heart className={`w-5 h-5 ${isCategoryLiked ? 'fill-current' : ''}`} />
+          </button>
+        </div>
         <div className="flex gap-2">
           {Array.from({ length: totalPages }).map((_, i) => (
             <div key={i} className={`w-3 h-3 rounded-full ${i === page ? 'bg-primary' : 'bg-gray-200'}`} />
@@ -205,6 +218,7 @@ const Expressions = ({
         {currentItems.map((exp, i) => {
           const expId = `${data.word}_${page * itemsPerPage + i}`;
           const currentDiff = difficultyMap[expId];
+          const isFamiliar = familiarExpressions.includes(expId);
 
           return (
             <motion.div 
@@ -228,10 +242,10 @@ const Expressions = ({
 
               <div className="feedback-container">
                 <button 
-                  onClick={() => onToggleLike(data.category)}
-                  className={`feedback-btn ${isLiked ? 'active like' : ''}`}
+                  onClick={() => onToggleFamiliar(expId)}
+                  className={`feedback-btn ${isFamiliar ? 'active like' : ''}`}
                 >
-                  <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} /> Love it!
+                  <CheckCircle2 className={`w-4 h-4 ${isFamiliar ? 'text-primary' : ''}`} /> I know this!
                 </button>
                 <button 
                   onClick={() => onSetDifficulty(expId, 'easy')}
@@ -437,6 +451,7 @@ export default function App() {
   const [mode, setMode] = useState<Mode>('level');
   const [userLevel, setUserLevel] = useState(1);
   const [likedCategories, setLikedCategories] = useState<string[]>([]);
+  const [familiarExpressions, setFamiliarExpressions] = useState<string[]>([]);
   const [difficultyMap, setDifficultyMap] = useState<Record<string, 'easy' | 'hard'>>({});
   const [currentWord, setCurrentWord] = useState<WordData>(VOCAB_LIBRARY[0]);
 
@@ -481,6 +496,12 @@ export default function App() {
     setPhase('intro');
   };
 
+  const toggleFamiliar = (id: string) => {
+    setFamiliarExpressions(prev => 
+      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
+    );
+  };
+
   const toggleLike = (category: string) => {
     setLikedCategories(prev => 
       prev.includes(category) ? prev.filter(c => c !== category) : [...prev, category]
@@ -513,8 +534,10 @@ export default function App() {
       case 'expressions': return (
         <Expressions 
           data={currentWord} 
+          familiarExpressions={familiarExpressions}
           likedCategories={likedCategories}
           difficultyMap={difficultyMap}
+          onToggleFamiliar={toggleFamiliar}
           onToggleLike={toggleLike}
           onSetDifficulty={setDifficulty}
           onNext={() => setPhase('test')} 
