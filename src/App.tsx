@@ -273,7 +273,7 @@ const WordIntro = ({ data, onNext }: { data: WordData, onNext: () => void }) => 
     <div className="card-bubble flex flex-col items-center gap-4 border-primary overflow-hidden">
       <div className="w-64 h-48 bg-gray-50 rounded-2xl flex-center text-6xl shadow-inner border-2 border-dashed border-gray-100">
         {/* Fallback emoji/icon since we can't easily add all images */}
-        {data.word === "Sky" ? "☁️" : data.word === "Apple" ? "🍎" : data.word === "Dog" ? "🐶" : data.word === "Sun" ? "☀️" : data.word === "Morning" ? "🌅" : data.word === "Lion" ? "🦁" : "🥛"}
+        {data.word === "Sky" ? "☁️" : data.word === "Apple" ? "🍎" : data.word === "Dog" ? "🐶" : data.word === "Sun" ? "☀️" : data.word === "Morning" ? "🌅" : data.word === "Lion" ? "🦁" : data.word === "Blocks" ? "🧱" : data.word === "Playground" ? "🎡" : data.word === "Bicycle" ? "🚲" : data.word === "Instrument" ? "🎸" : "🥛"}
       </div>
       <h1 
         className="font-black text-primary tracking-widest whitespace-nowrap"
