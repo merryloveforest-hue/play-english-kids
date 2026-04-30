@@ -14,63 +14,200 @@ export interface WordData {
 }
 
 export const VOCAB_LIBRARY: WordData[] = [
-  // --- Nature & Environment ---
+  // --- 1. School Life ---
   {
-    word: "Sky",
-    category: "Nature",
-    phonics: { text: "S-k-y", highlight: ["y"] },
-    definition: "The space above the Earth that you see when you look up.",
-    koreanMeaning: "하늘: 땅 위쪽의 공간으로, 낮에는 보통 파란색으로 보여요.",
+    word: "Teacher",
+    category: "School",
+    phonics: { text: "Teach-er", highlight: ["Teach"] },
+    definition: "A person whose job is to help students learn.",
+    koreanMeaning: "선생님: 학생들의 공부를 도와주는 직업을 가진 사람이에요.",
     expressions: [
-      { en: "The sky is blue.", ko: "하늘이 파란색이에요." },
-      { en: "I see clouds in the sky.", ko: "하늘에 구름이 보여요." },
-      { en: "Birds fly in the sky.", ko: "새들이 하늘을 날아다녀요." },
-      { en: "The sun is in the sky.", ko: "태양이 하늘에 있어요." },
-      { en: "Look at the night sky.", ko: "밤하늘을 보세요." },
-      { en: "Stars shine in the sky.", ko: "별들이 하늘에서 빛나요." },
-      { en: "The sky is very high.", ko: "하늘은 아주 높아요." },
-      { en: "An airplane is in the sky.", ko: "비행기가 하늘에 있어요." },
-      { en: "Rain falls from the sky.", ko: "하늘에서 비가 내려요." }
+      { en: "Listen to the teacher.", ko: "선생님의 말씀을 들으세요." },
+      { en: "I like my English teacher.", ko: "나는 영어 선생님을 좋아해요." },
+      { en: "The teacher is in the classroom.", ko: "선생님이 교실에 계셔요." },
+      { en: "Ask your teacher a question.", ko: "선생님께 질문을 하세요." },
+      { en: "My mom is a math teacher.", ko: "우리 엄마는 수학 선생님이에요." },
+      { en: "Say hello to the teacher.", ko: "선생님께 인사하세요." },
+      { en: "The teacher writes on the board.", ko: "선생님이 칠판에 글을 쓰셔요." },
+      { en: "Be a good teacher someday.", ko: "언젠가 좋은 선생님이 되세요." },
+      { en: "Our teacher is very kind.", ko: "우리 선생님은 아주 친절해요." }
     ],
-    activity: {
-      title: "Cotton Cloud Sky",
-      description: "Create your own fluffy sky using cotton balls!",
-      materials: ["Blue paper", "Cotton balls", "Glue"],
-      songUrl: "https://www.youtube.com/embed/fA8Hw1Z3nI0"
-    }
+    activity: { title: "Role Play", description: "Be a teacher and teach a friend!", materials: ["Books", "Glasses"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
   },
   {
-    word: "Arctic",
-    category: "Nature",
-    phonics: { text: "Arc-tic", highlight: ["Arc"] },
-    definition: "The very cold area around the North Pole.",
-    koreanMeaning: "북극: 북극점 주변의 아주 추운 지역이에요.",
+    word: "Pencil",
+    category: "School",
+    phonics: { text: "Pen-cil", highlight: ["cil"] },
+    definition: "A tool used for writing or drawing.",
+    koreanMeaning: "연필: 글을 쓰거나 그림을 그릴 때 사용하는 도구예요.",
     expressions: [
-      { en: "Polar bears live in the Arctic.", ko: "북극곰은 북극에 살아요." },
-      { en: "It is freezing in the Arctic.", ko: "북극은 꽁꽁 얼어붙을 정도로 추워요." },
-      { en: "The Arctic is full of ice.", ko: "북극은 얼음으로 가득 차 있어요." },
-      { en: "Scientists study the Arctic.", ko: "과학자들은 북극을 연구해요." },
-      { en: "Can you find the Arctic on a map?", ko: "지도에서 북극을 찾을 수 있나요?" },
-      { en: "Arctic foxes have white fur.", ko: "북극여우는 하얀 털을 가지고 있어요." },
-      { en: "The Arctic is beautiful but cold.", ko: "북극은 아름답지만 추워요." },
-      { en: "It is hard to survive in the Arctic.", ko: "북극에서 살아남기는 힘들어요." },
-      { en: "The Arctic ice is melting.", ko: "북극의 얼음이 녹고 있어요." }
+      { en: "I have a sharp pencil.", ko: "나는 뾰족한 연필을 가지고 있어요." },
+      { en: "Where is my pencil?", ko: "내 연필이 어디 있지?" },
+      { en: "Please lend me a pencil.", ko: "연필 한 자루만 빌려주세요." },
+      { en: "I write with a pencil.", ko: "나는 연필로 글을 써요." },
+      { en: "Sharpen your pencil.", ko: "연필을 깎으세요." },
+      { en: "The pencil is on the desk.", ko: "연필이 책상 위에 있어요." },
+      { en: "I need a red pencil.", ko: "나는 빨간 연필이 필요해요." },
+      { en: "My pencil is short now.", ko: "내 연필이 이제 짧아졌어요." },
+      { en: "Put your pencil in the case.", ko: "필통에 연필을 넣으세요." }
     ],
-    activity: {
-      title: "Ice Painting",
-      description: "Paint on blocks of ice to see how colors move!",
-      materials: ["Ice blocks", "Watercolors", "Brushes"],
-      songUrl: "https://www.youtube.com/embed/8-W7WbS9h1k"
-    }
+    activity: { title: "Pencil Art", description: "Draw anything you like with a pencil!", materials: ["Pencil", "Paper"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
   },
 
-  // --- Cooking & Food (User Requested) ---
+  // --- 2. Family ---
+  {
+    word: "Mother",
+    category: "Family",
+    phonics: { text: "Moth-er", highlight: ["Moth"] },
+    definition: "A female parent.",
+    koreanMeaning: "어머니: 여자 부모님을 말해요.",
+    expressions: [
+      { en: "I love my mother.", ko: "나는 우리 엄마를 사랑해요." },
+      { en: "My mother is cooking.", ko: "우리 엄마는 요리 중이세요." },
+      { en: "She is a great mother.", ko: "그녀는 위대한 어머니예요." },
+      { en: "I help my mother.", ko: "나는 엄마를 도와드려요." },
+      { en: "Mother's Day is in May.", ko: "어버이날은 5월에 있어요." },
+      { en: "My mother is very smart.", ko: "우리 엄마는 아주 똑똑해요." },
+      { en: "Go to see your mother.", ko: "엄마를 보러 가세요." },
+      { en: "Mother made this cake.", ko: "엄마가 이 케이크를 만드셨어요." },
+      { en: "Tell your mother the truth.", ko: "엄마에게 사실대로 말하세요." }
+    ],
+    activity: { title: "Mother's Card", description: "Make a thank you card for Mom!", materials: ["Paper", "Flowers"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
+  },
+
+  // --- 3. Colors ---
+  {
+    word: "Blue",
+    category: "Colors",
+    phonics: { text: "B-l-u-e", highlight: ["ue"] },
+    definition: "The color of the clear sky or the ocean.",
+    koreanMeaning: "파란색: 맑은 하늘이나 바다의 색깔이에요.",
+    expressions: [
+      { en: "The sky is blue.", ko: "하늘이 파란색이에요." },
+      { en: "I have a blue bag.", ko: "나는 파란 가방을 가지고 있어요." },
+      { en: "Blue is my favorite color.", ko: "파란색은 내가 제일 좋아하는 색이에요." },
+      { en: "The ocean looks blue.", ko: "바다가 파랗게 보여요." },
+      { en: "Wear your blue shirt.", ko: "파란색 셔츠를 입으세요." },
+      { en: "Do you see the blue bird?", ko: "파란 새가 보이나요?" },
+      { en: "The room is painted blue.", ko: "방이 파란색으로 칠해져 있어요." },
+      { en: "Mix blue and yellow to get green.", ko: "파란색과 노란색을 섞으면 초록색이 돼요." },
+      { en: "A blue car is coming.", ko: "파란색 차가 오고 있어요." }
+    ],
+    activity: { title: "Blue Hunt", description: "Find 3 blue things in your room!", materials: ["Eyes!"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
+  },
+
+  // --- 4. Feelings ---
+  {
+    word: "Happy",
+    category: "Feelings",
+    phonics: { text: "Hap-py", highlight: ["py"] },
+    definition: "Feeling or showing pleasure or contentment.",
+    koreanMeaning: "행복한: 기쁨이나 만족감을 느끼거나 보여주는 상태예요.",
+    expressions: [
+      { en: "I am so happy today.", ko: "나는 오늘 정말 행복해요." },
+      { en: "A happy smile.", ko: "행복한 미소." },
+      { en: "She makes me happy.", ko: "그녀는 나를 행복하게 해줘요." },
+      { en: "Happy birthday to you!", ko: "생일 축하해요!" },
+      { en: "We are a happy family.", ko: "우리는 행복한 가족이에요." },
+      { en: "Are you happy now?", ko: "지금 행복한가요?" },
+      { en: "Eat good food to be happy.", ko: "행복해지려면 맛있는 음식을 드세요." },
+      { en: "He has a happy life.", ko: "그는 행복한 삶을 살고 있어요." },
+      { en: "Always stay happy.", ko: "항상 행복하게 지내세요." }
+    ],
+    activity: { title: "Happy Face", description: "Draw a big happy face!", materials: ["Yellow paper", "Marker"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
+  },
+
+  // --- 5. Action Verbs ---
+  {
+    word: "Jump",
+    category: "Action",
+    phonics: { text: "J-u-m-p", highlight: ["u"] },
+    definition: "To push yourself off the ground into the air.",
+    koreanMeaning: "뛰다: 땅을 차고 공중으로 몸을 솟구치는 것이에요.",
+    expressions: [
+      { en: "Jump high!", ko: "높이 뛰어보세요!" },
+      { en: "Can you jump over the log?", ko: "통나무를 뛰어넘을 수 있나요?" },
+      { en: "I love to jump on the bed.", ko: "나는 침대에서 뛰는 걸 좋아해요." },
+      { en: "Don't jump too much.", ko: "너무 많이 뛰지 마세요." },
+      { en: "The frog can jump far.", ko: "개구리는 멀리 뛸 수 있어요." },
+      { en: "Jump up and down.", ko: "위아래로 뛰어보세요." },
+      { en: "Let's jump together.", ko: "함께 뛰어봐요." },
+      { en: "The cat jumps on the sofa.", ko: "고양이가 소파 위로 뛰어올라요." },
+      { en: "Ready, set, jump!", ko: "제자리, 준비, 점프!" }
+    ],
+    activity: { title: "Jump Rope", description: "Try to jump rope 10 times!", materials: ["Jump rope"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
+  },
+
+  // --- 6. Body ---
+  {
+    word: "Hand",
+    category: "Body",
+    phonics: { text: "H-a-n-d", highlight: ["a"] },
+    definition: "The part of your body at the end of your arm.",
+    koreanMeaning: "손: 팔 끝에 붙어 있는 신체 부위예요.",
+    expressions: [
+      { en: "Wash your hands.", ko: "손을 씻으세요." },
+      { en: "Hold my hand.", ko: "내 손을 잡으세요." },
+      { en: "Raise your hand.", ko: "손을 드세요." },
+      { en: "Clap your hands!", ko: "박수를 치세요!" },
+      { en: "I have two hands.", ko: "나는 두 손이 있어요." },
+      { en: "Your hands are cold.", ko: "당신의 손이 차가워요." },
+      { en: "Give me a hand.", ko: "나 좀 도와줘요. (손 좀 빌려줘요)" },
+      { en: "Put your hand on your head.", ko: "머리 위에 손을 얹으세요." },
+      { en: "Wave your hand goodbye.", ko: "손을 흔들어 작별 인사하세요." }
+    ],
+    activity: { title: "Hand Print", description: "Make art with your hand prints!", materials: ["Paint", "Paper"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
+  },
+
+  // --- 7. Weather ---
+  {
+    word: "Rainy",
+    category: "Weather",
+    phonics: { text: "Rain-y", highlight: ["Rain"] },
+    definition: "Having a lot of rain.",
+    koreanMeaning: "비가 오는: 비가 많이 내리는 날씨예요.",
+    expressions: [
+      { en: "It is a rainy day.", ko: "비가 오는 날이에요." },
+      { en: "I like rainy weather.", ko: "나는 비 오는 날씨를 좋아해요." },
+      { en: "Take your umbrella on a rainy day.", ko: "비 오는 날에는 우산을 챙기세요." },
+      { en: "The sky is gray and rainy.", ko: "하늘이 회색빛이고 비가 와요." },
+      { en: "Listen to the rainy sounds.", ko: "빗소리를 들어보세요." },
+      { en: "Wear boots for the rainy walk.", ko: "비 오는 길을 걸으려면 장화를 신으세요." },
+      { en: "Is it still rainy outside?", ko: "밖은 아직도 비가 오나요?" },
+      { en: "Rainy days make the grass green.", ko: "비 오는 날이 풀밭을 초록색으로 만들어요." },
+      { en: "Stay home on a rainy night.", ko: "비 오는 밤에는 집에 머무세요." }
+    ],
+    activity: { title: "Paper Umbrella", description: "Make a small umbrella out of paper!", materials: ["Paper", "Straw"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
+  },
+
+  // --- 8. Time & Numbers ---
+  {
+    word: "Morning",
+    category: "Time",
+    phonics: { text: "Morn-ing", highlight: ["Morn"] },
+    definition: "The early part of the day.",
+    koreanMeaning: "아침: 하루 중 이른 시간을 말해요.",
+    expressions: [
+      { en: "Good morning!", ko: "좋은 아침이에요!" },
+      { en: "I wake up in the morning.", ko: "나는 아침에 일어나요." },
+      { en: "It is a beautiful morning.", ko: "아름다운 아침이에요." },
+      { en: "Eat breakfast in the morning.", ko: "아침에 식사를 하세요." },
+      { en: "The sun rises in the morning.", ko: "아침에 해가 떠요." },
+      { en: "I study English every morning.", ko: "나는 매일 아침 영어를 공부해요." },
+      { en: "Drink water in the morning.", ko: "아침에 물을 마시세요." },
+      { en: "The morning air is fresh.", ko: "아침 공기가 상쾌해요." },
+      { en: "Busy morning, right?", ko: "바쁜 아침이죠, 그렇죠?" }
+    ],
+    activity: { title: "Morning Routine", description: "Draw 3 things you do every morning!", materials: ["Paper", "Pencil"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
+  },
+
+  // --- From Previous List (Preserved & Enhanced) ---
   {
     word: "Chef",
     category: "Cooking",
     phonics: { text: "Ch-e-f", highlight: ["Ch"] },
-    definition: "A professional cook who is in charge of a kitchen.",
-    koreanMeaning: "요리사: 주방을 책임지는 전문적인 요리사예요.",
+    definition: "A professional cook.",
+    koreanMeaning: "요리사: 전문적인 요리사예요.",
     expressions: [
       { en: "The chef wears a tall hat.", ko: "요리사는 높은 모자를 써요." },
       { en: "I want to be a chef.", ko: "나는 요리사가 되고 싶어요." },
@@ -82,305 +219,82 @@ export const VOCAB_LIBRARY: WordData[] = [
       { en: "A chef uses many knives.", ko: "요리사는 많은 칼을 사용해요." },
       { en: "The master chef is famous.", ko: "그 마스터 셰프는 유명해요." }
     ],
-    activity: {
-      title: "Mini Chef Hat",
-      description: "Make your own paper chef hat!",
-      materials: ["White paper", "Tape"],
-      songUrl: "https://www.youtube.com/embed/nUAtO090E0g"
-    }
+    activity: { title: "Mini Chef Hat", description: "Make your own paper chef hat!", materials: ["White paper"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
   },
   {
-    word: "Ingredient",
-    category: "Cooking",
-    phonics: { text: "In-gre-di-ent", highlight: ["ent"] },
-    definition: "One of the things that are used to make a food.",
-    koreanMeaning: "재료: 음식을 만드는 데 사용되는 것들 중 하나예요.",
-    expressions: [
-      { en: "Flour is a main ingredient.", ko: "밀가루는 주요 재료예요." },
-      { en: "Check the list of ingredients.", ko: "재료 목록을 확인하세요." },
-      { en: "We need fresh ingredients.", ko: "우리는 신선한 재료가 필요해요." },
-      { en: "Eggs are an important ingredient.", ko: "계란은 중요한 재료예요." },
-      { en: "Buy ingredients at the market.", ko: "시장에서 재료를 사세요." },
-      { en: "Add the ingredients one by one.", ko: "재료를 하나씩 넣으세요." },
-      { en: "What are the secret ingredients?", ko: "비밀 재료가 무엇인가요?" },
-      { en: "Mix all the ingredients together.", ko: "모든 재료를 함께 섞으세요." },
-      { en: "Salt is a simple ingredient.", ko: "소금은 간단한 재료예요." }
-    ],
-    activity: {
-      title: "Recipe Card",
-      description: "Write down ingredients for your favorite snack!",
-      materials: ["Card", "Colored pencils"],
-      songUrl: "https://www.youtube.com/embed/rqQSlEViNpk"
-    }
-  },
-  {
-    word: "Bake",
-    category: "Cooking",
-    phonics: { text: "B-a-k-e", highlight: ["a", "e"] },
-    definition: "To cook food in an oven using dry heat.",
-    koreanMeaning: "굽다: 오븐에서 건조한 열을 이용해 음식을 요리하는 것이에요.",
-    expressions: [
-      { en: "Let's bake some cookies.", ko: "쿠키를 좀 구워요." },
-      { en: "I bake bread every Sunday.", ko: "나는 일요일마다 빵을 구워요." },
-      { en: "The cake is baking in the oven.", ko: "케이크가 오븐에서 구워지고 있어요." },
-      { en: "Baking makes the house smell good.", ko: "굽는 냄새가 집안을 좋게 만들어요." },
-      { en: "Don't bake it for too long.", ko: "너무 오래 굽지 마세요." },
-      { en: "Can you bake a pizza?", ko: "피자를 구울 수 있나요?" },
-      { en: "My mom loves to bake pies.", ko: "우리 엄마는 파이 굽는 걸 좋아하세요." },
-      { en: "We bake potatoes for dinner.", ko: "저녁으로 감자를 구워요." },
-      { en: "Baking is fun and easy.", ko: "굽기는 재미있고 쉬워요." }
-    ],
-    activity: {
-      title: "Play-Doh Bakery",
-      description: "Create 'baked goods' using play-doh!",
-      materials: ["Play-doh", "Cookie cutters"],
-      songUrl: "https://www.youtube.com/embed/f_Y7HstG20s"
-    }
-  },
-
-  // --- Academic & Action ---
-  {
-    word: "Analyze",
-    category: "School",
-    phonics: { text: "An-a-lyze", highlight: ["lyze"] },
-    definition: "To study something carefully to understand it.",
-    koreanMeaning: "분석하다: 무언가를 이해하기 위해 주의 깊게 연구하는 것이에요.",
-    expressions: [
-      { en: "Analyze the data carefully.", ko: "데이터를 주의 깊게 분석하세요." },
-      { en: "We analyze the story in class.", ko: "우리는 수업 시간에 이야기를 분석해요." },
-      { en: "Can you analyze this problem?", ko: "이 문제를 분석할 수 있나요?" },
-      { en: "Scientists analyze the results.", ko: "과학자들은 결과를 분석해요." },
-      { en: "Analyze how it works.", ko: "그것이 어떻게 작동하는지 분석하세요." },
-      { en: "Let's analyze the map.", ko: "지도를 분석해 봅시다." },
-      { en: "Think and analyze first.", ko: "먼저 생각하고 분석하세요." },
-      { en: "She analyzes the handwriting.", ko: "그녀는 필적을 분석해요." },
-      { en: "Analyze the character's feelings.", ko: "등장인물의 감정을 분석하세요." }
-    ],
-    activity: {
-      title: "Pattern Finder",
-      description: "Find patterns in a group of objects!",
-      materials: ["Blocks", "Buttons", "Paper"],
-      songUrl: "https://www.youtube.com/embed/rqQSlEViNpk"
-    }
-  },
-  {
-    word: "Explore",
-    category: "Adventure",
-    phonics: { text: "Ex-plore", highlight: ["plore"] },
-    definition: "To travel to a new place to learn about it.",
-    koreanMeaning: "탐험하다: 새로운 곳을 배우기 위해 여행하는 것이에요.",
-    expressions: [
-      { en: "Let's explore the forest.", ko: "숲을 탐험해 봐요." },
-      { en: "I want to explore the moon.", ko: "나는 달을 탐험하고 싶어요." },
-      { en: "They explore the old house.", ko: "그들은 오래된 집을 탐험해요." },
-      { en: "Explore the deep ocean.", ko: "깊은 바다를 탐험하세요." },
-      { en: "We explore new ideas.", ko: "우리는 새로운 아이디어를 탐구해요." },
-      { en: "Explore the world through books.", ko: "책을 통해 세상을 탐험하세요." },
-      { en: "Dora loves to explore.", ko: "도라는 탐험하는 것을 좋아해요." },
-      { en: "Let's explore the garden.", ko: "정원을 탐험해 봅시다." },
-      { en: "Explorers find new lands.", ko: "탐험가들은 새로운 땅을 발견해요." }
-    ],
-    activity: {
-      title: "Nature Scavenger Hunt",
-      description: "Explore outside and find items on a list!",
-      materials: ["List", "Pencil", "Magnifying glass"],
-      songUrl: "https://www.youtube.com/embed/rqQSlEViNpk"
-    }
-  },
-  {
-    word: "Magnificent",
-    category: "Descriptive",
-    phonics: { text: "Mag-nif-i-cent", highlight: ["cent"] },
-    definition: "Very beautiful and impressive.",
-    koreanMeaning: "장엄한: 매우 아름답고 인상적인 것이에요.",
-    expressions: [
-      { en: "The castle is magnificent.", ko: "그 성은 장엄해요." },
-      { en: "What a magnificent view!", ko: "정말 장엄한 광경이네요!" },
-      { en: "The fireworks were magnificent.", ko: "불꽃놀이가 정말 장엄했어요." },
-      { en: "He is a magnificent player.", ko: "그는 훌륭한 선수예요." },
-      { en: "The mountains are magnificent.", ko: "산들이 장엄해요." },
-      { en: "She wore a magnificent dress.", ko: "그녀는 화려한 드레스를 입었어요." },
-      { en: "The sunrise was magnificent.", ko: "일출이 정말 장엄했어요." },
-      { en: "A magnificent eagle flies high.", ko: "위엄 있는 독수리가 높이 날아요." },
-      { en: "Nature is magnificent.", ko: "자연은 정말 장엄해요." }
-    ],
-    activity: {
-      title: "Art Gallery",
-      description: "Draw a magnificent castle!",
-      materials: ["Paper", "Gold crayons"],
-      songUrl: "https://www.youtube.com/embed/rqQSlEViNpk"
-    }
-  },
-  {
-    word: "Device",
-    category: "Technology",
-    phonics: { text: "De-vice", highlight: ["vice"] },
-    definition: "An object or tool made for a special purpose.",
-    koreanMeaning: "장치: 특수한 목적으로 만들어진 물건이나 도구예요.",
-    expressions: [
-      { en: "A phone is a smart device.", ko: "전화기는 스마트 장치예요." },
-      { en: "Turn off the device, please.", ko: "장치를 꺼주세요." },
-      { en: "This device is very useful.", ko: "이 장치는 매우 유용해요." },
-      { en: "I use a mobile device.", ko: "나는 모바일 장치를 사용해요." },
-      { en: "The device is charging.", ko: "장치가 충전 중이에요." },
-      { en: "Invent a new device.", ko: "새로운 장치를 발명하세요." },
-      { en: "A remote is a simple device.", ko: "리모컨은 간단한 장치예요." },
-      { en: "Connect the device to Wi-Fi.", ko: "장치를 와이파이에 연결하세요." },
-      { en: "Be careful with the electronic device.", ko: "전자 장치를 조심해서 다루세요." }
-    ],
-    activity: {
-      title: "Future Invention",
-      description: "Draw a device that can help you with homework!",
-      materials: ["Paper", "Markers"],
-      songUrl: "https://www.youtube.com/embed/rqQSlEViNpk"
-    }
-  },
-  {
-    word: "Wisdom",
-    category: "Mindset",
-    phonics: { text: "Wis-dom", highlight: ["dom"] },
-    definition: "The ability to use your knowledge to make good decisions.",
-    koreanMeaning: "지혜: 좋은 결정을 내리기 위해 지식을 사용하는 능력이에요.",
-    expressions: [
-      { en: "Grandpa has much wisdom.", ko: "할아버지는 지혜가 아주 많으세요." },
-      { en: "Seek wisdom every day.", ko: "매일 지혜를 구하세요." },
-      { en: "Wisdom is better than gold.", ko: "지혜는 금보다 낫습니다." },
-      { en: "An owl is a symbol of wisdom.", ko: "부엉이는 지혜의 상징이에요." },
-      { en: "Listen to the words of wisdom.", ko: "지혜로운 말씀에 귀를 기울이세요." },
-      { en: "Experience brings wisdom.", ko: "경험은 지혜를 가져다줘요." },
-      { en: "Books contain great wisdom.", ko: "책에는 커다란 지혜가 담겨 있어요." },
-      { en: "Think with wisdom.", ko: "지혜롭게 생각하세요." },
-      { en: "Share your wisdom with others.", ko: "당신의 지혜를 다른 사람들과 나누세요." }
-    ],
-    activity: {
-      title: "Advice Tree",
-      description: "Write one piece of 'wisdom' on a paper leaf!",
-      materials: ["Green paper", "Marker"],
-      songUrl: "https://www.youtube.com/embed/rqQSlEViNpk"
-    }
-  },
-  {
-    word: "Journey",
-    category: "Adventure",
-    phonics: { text: "Jour-ney", highlight: ["ney"] },
-    definition: "The act of traveling from one place to another.",
-    koreanMeaning: "여정: 한 곳에서 다른 곳으로 여행하는 행위예요.",
-    expressions: [
-      { en: "Life is a long journey.", ko: "인생은 긴 여정이에요." },
-      { en: "Enjoy the journey, not just the end.", ko: "목적지뿐만 아니라 여정을 즐기세요." },
-      { en: "We started our journey early.", ko: "우리는 일찍 여정을 시작했어요." },
-      { en: "The journey takes three days.", ko: "그 여정은 사흘이 걸려요." },
-      { en: "Have a safe journey!", ko: "안전한 여행 되세요!" },
-      { en: "A thousand miles journey begins with a step.", ko: "천 리 길도 한 걸음부터 시작해요." },
-      { en: "The journey across the desert was hard.", ko: "사막을 횡단하는 여정은 힘들었어요." },
-      { en: "Space journey is exciting.", ko: "우주 여행은 흥미진진해요." },
-      { en: "Write about your journey.", ko: "당신의 여정에 대해 써보세요." }
-    ],
-    activity: {
-      title: "Travel Map",
-      description: "Draw a map of your dream journey!",
-      materials: ["Paper", "Colored pencils"],
-      songUrl: "https://www.youtube.com/embed/rqQSlEViNpk"
-    }
-  },
-  {
-    word: "Communicate",
-    category: "Social",
-    phonics: { text: "Com-mu-ni-cate", highlight: ["cate"] },
-    definition: "To share information or feelings with others.",
-    koreanMeaning: "의사소통하다: 다른 사람들과 정보나 감정을 나누는 것이이에요.",
-    expressions: [
-      { en: "We communicate by talking.", ko: "우리는 말을 통해 의사소통해요." },
-      { en: "Animals communicate too.", ko: "동물들도 의사소통을 해요." },
-      { en: "Can you communicate clearly?", ko: "명확하게 의사소통할 수 있나요?" },
-      { en: "We use signs to communicate.", ko: "우리는 소통하기 위해 표지판을 사용해요." },
-      { en: "Communicate your ideas.", ko: "당신의 아이디어를 전달하세요." },
-      { en: "Internet helps us communicate.", ko: "인터넷은 우리가 소통하는 것을 도와줘요." },
-      { en: "Listen first to communicate better.", ko: "더 잘 소통하기 위해 먼저 들으세요." },
-      { en: "Eyes can communicate feelings.", ko: "눈은 감정을 전달할 수 있어요." },
-      { en: "It is important to communicate.", ko: "소통하는 것은 중요해요." }
-    ],
-    activity: {
-      title: "Telephone Game",
-      description: "Whisper a message to a friend and see how it changes!",
-      materials: ["Friends!"],
-      songUrl: "https://www.youtube.com/embed/rqQSlEViNpk"
-    }
-  },
-
-  // --- Animals ---
-  {
-    word: "Lion",
-    category: "Animals",
-    phonics: { text: "Li-on", highlight: ["Li"] },
-    definition: "A large wild cat that is the 'King of the Jungle'.",
-    koreanMeaning: "사자: '밀림의 왕'이라고 불리는 커다란 야생 고양이과 동물이에요.",
-    expressions: [
-      { en: "The lion has a big mane.", ko: "사자는 커다란 갈기가 있어요." },
-      { en: "Hear the lion roar!", ko: "사자의 포효 소리를 들어보세요!" },
-      { en: "Lions hunt together.", ko: "사자들은 함께 사냥해요." },
-      { en: "A baby lion is called a cub.", ko: "아기 사자는 'cub'이라고 불려요." },
-      { en: "The lion sleeps in the grass.", ko: "사자가 풀밭에서 자고 있어요." },
-      { en: "Lions are very strong.", ko: "사자는 아주 힘이 세요." },
-      { en: "The king lion is brave.", ko: "왕 사자는 용감해요." },
-      { en: "Lions live in Africa.", ko: "사자는 아프리카에 살아요." },
-      { en: "I saw a lion at the zoo.", ko: "동물원에서 사자를 봤어요." }
-    ],
-    activity: {
-      title: "Paper Plate Lion",
-      description: "Make a lion's face with a paper plate and orange paper!",
-      materials: ["Paper plate", "Construction paper", "Glue"],
-      songUrl: "https://www.youtube.com/embed/rqQSlEViNpk"
-    }
-  },
-  {
-    word: "Elephant",
-    category: "Animals",
-    phonics: { text: "El-e-phant", highlight: ["phant"] },
-    definition: "The largest land animal with a long trunk.",
-    koreanMeaning: "코끼리: 긴 코를 가진 가장 큰 육상 동물이에요.",
-    expressions: [
-      { en: "An elephant has a long trunk.", ko: "코끼리는 긴 코를 가지고 있어요." },
-      { en: "Elephants have big ears.", ko: "코끼리는 큰 귀를 가지고 있어요." },
-      { en: "The elephant is huge.", ko: "코끼리는 정말 거대해요." },
-      { en: "Elephants love to swim.", ko: "코끼리는 수영하는 것을 좋아해요." },
-      { en: "Use the trunk to drink water.", ko: "코를 사용해서 물을 마셔요." },
-      { en: "Elephants never forget.", ko: "코끼리는 절대 잊지 않아요." },
-      { en: "The elephant walks slowly.", ko: "코끼리는 천천히 걸어요." },
-      { en: "Elephants are very smart.", ko: "코끼리는 아주 똑똑해요." },
-      { en: "An elephant has tusks.", ko: "코끼리는 상아가 있어요." }
-    ],
-    activity: {
-      title: "Elephant Trunk Game",
-      description: "Use your arm as a trunk and try to pick up things!",
-      materials: ["Toys", "Your arm!"],
-      songUrl: "https://www.youtube.com/embed/rqQSlEViNpk"
-    }
-  },
-
-  // --- More Food ---
-  {
-    word: "Banana",
+    word: "Apple",
     category: "Food",
-    phonics: { text: "Ba-nan-a", highlight: ["nan"] },
-    definition: "A long yellow fruit that is soft inside.",
-    koreanMeaning: "바나나: 속이 부드럽고 길쭉한 노란색 과일이에요.",
+    phonics: { text: "A-p-p-l-e", highlight: ["A"] },
+    definition: "A round fruit.",
+    koreanMeaning: "사과: 둥근 과일이에요.",
     expressions: [
-      { en: "I eat a banana for breakfast.", ko: "나는 아침으로 바나나를 먹어요." },
-      { en: "Bananas are sweet.", ko: "바나나는 달콤해요." },
-      { en: "Peel the banana carefully.", ko: "바나나 껍질을 조심해서 벗기세요." },
-      { en: "Monkeys love bananas.", ko: "원숭이들은 바나나를 좋아해요." },
-      { en: "A banana is yellow when ripe.", ko: "바나나는 익으면 노란색이에요." },
-      { en: "Banana bread is delicious.", ko: "바나나 빵은 맛있어요." },
-      { en: "Don't slip on the banana peel!", ko: "바나나 껍질에 미끄러지지 마세요!" },
-      { en: "Put a banana in your lunchbox.", ko: "도시락에 바나나를 넣으세요." },
-      { en: "I like banana milk.", ko: "나는 바나나 우유를 좋아해요." }
+      { en: "I like red apples.", ko: "나는 빨간 사과를 좋아해요." },
+      { en: "An apple is crunchy.", ko: "사과는 아삭아삭해요." },
+      { en: "She eats an apple.", ko: "그녀는 사과를 먹어요." },
+      { en: "Do you want an apple?", ko: "사과 드릴까요?" },
+      { en: "Apples are sweet.", ko: "사과는 달콤해요." },
+      { en: "I have a big apple.", ko: "나는 큰 사과를 가지고 있어요." },
+      { en: "The apple is on the table.", ko: "사과가 테이블 위에 있어요." },
+      { en: "Apple juice is yummy.", ko: "사과 주스는 맛있어요." },
+      { en: "Let's share this apple.", ko: "이 사과를 나눠 먹어요." }
     ],
-    activity: {
-      title: "Banana Dolphin",
-      description: "Turn a banana into a cute dolphin snack!",
-      materials: ["Banana", "Grape", "Marker"],
-      songUrl: "https://www.youtube.com/embed/rqQSlEViNpk"
-    }
+    activity: { title: "Apple Printing", description: "Dip an apple half in paint!", materials: ["Apple", "Paint"], songUrl: "https://www.youtube.com/embed/f_Y7HstG20s" }
+  },
+  {
+    word: "Dog",
+    category: "Animals",
+    phonics: { text: "D-o-g", highlight: ["o"] },
+    definition: "A common pet.",
+    koreanMeaning: "개: 흔히 기르는 반려동물이에요.",
+    expressions: [
+      { en: "My dog is small.", ko: "내 강아지는 작아요." },
+      { en: "The dog wags its tail.", ko: "개가 꼬리를 흔들어요." },
+      { en: "I play with my dog.", ko: "나는 내 강아지와 놀아요." },
+      { en: "A dog likes bones.", ko: "개는 뼈다귀를 좋아해요." },
+      { en: "The dog is sleeping.", ko: "강아지가 자고 있어요." },
+      { en: "Run, dog, run!", ko: "달려라, 강아지야, 달려!" },
+      { en: "He has a pet dog.", ko: "그는 반려견이 있어요." },
+      { en: "The dog says woof.", ko: "개는 멍멍 하고 짖어요." },
+      { en: "The dog is very cute.", ko: "강아지가 아주 귀여워요." }
+    ],
+    activity: { title: "Origami Dog", description: "Fold a paper to make a dog!", materials: ["Square paper"], songUrl: "https://www.youtube.com/embed/4S-mC6_N9uU" }
+  },
+  {
+    word: "Sun",
+    category: "Nature",
+    phonics: { text: "S-u-n", highlight: ["u"] },
+    definition: "The big star.",
+    koreanMeaning: "태양: 커다란 별이에요.",
+    expressions: [
+      { en: "The sun is hot.", ko: "태양은 뜨거워요." },
+      { en: "The sun is yellow.", ko: "태양은 노란색이에요." },
+      { en: "The sun comes up.", ko: "해가 떠올라요." },
+      { en: "We need the sun.", ko: "우리는 태양이 필요해요." },
+      { en: "The sun is very bright.", ko: "태양은 아주 밝아요." },
+      { en: "It is a sunny day.", ko: "화창한 날이에요." },
+      { en: "The sun goes down.", ko: "해가 져요." },
+      { en: "Draw a big sun.", ko: "커다란 태양을 그리세요." },
+      { en: "The sun makes us warm.", ko: "태양은 우리를 따뜻하게 해줘요." }
+    ],
+    activity: { title: "Sun Catcher", description: "Make a colorful sun catcher!", materials: ["Clear paper"], songUrl: "https://www.youtube.com/embed/fA8Hw1Z3nI0" }
+  },
+  {
+    word: "Milk",
+    category: "Food",
+    phonics: { text: "M-i-l-k", highlight: ["i"] },
+    definition: "A white liquid.",
+    koreanMeaning: "우유: 하얀 액체예요.",
+    expressions: [
+      { en: "I drink milk.", ko: "나는 우유를 마셔요." },
+      { en: "Milk is white.", ko: "우유는 하얀색이에요." },
+      { en: "Cold milk is good.", ko: "찬 우유는 맛있어요." },
+      { en: "Milk makes you strong.", ko: "우유는 당신을 튼튼하게 해줘요." },
+      { en: "Cookies and milk!", ko: "쿠키와 우유!" },
+      { en: "The milk is in the fridge.", ko: "우유가 냉장고에 있어요." },
+      { en: "Pour the milk, please.", ko: "우유를 따라주세요." },
+      { en: "I like chocolate milk.", ko: "나는 초코 우유를 좋아해요." },
+      { en: "The baby drinks milk.", ko: "아기가 우유를 마셔요." }
+    ],
+    activity: { title: "Magic Milk", description: "Watch colors dance in milk!", materials: ["Milk", "Food coloring"], songUrl: "https://www.youtube.com/embed/rqQSlEViNpk" }
   }
 ];

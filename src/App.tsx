@@ -143,7 +143,7 @@ const ClickableWord = ({ text, targetWord }: { text: string, targetWord: string 
   const parts = text.split(new RegExp(`(${targetWord})`, 'gi'));
   
   return (
-    <span className="text-xl font-bold leading-relaxed">
+    <span className="font-bold leading-relaxed">
       {parts.map((part, i) => (
         part.toLowerCase() === targetWord.toLowerCase() ? (
           <motion.span 
@@ -215,11 +215,13 @@ const Expressions = ({
               className="card-bubble py-6 flex flex-col gap-4 border-2 hover:border-primary transition-colors"
             >
               <div className="flex justify-between items-start gap-4">
-                <div className="flex-1">
-                  <ClickableWord text={exp.en} targetWord={data.word} />
-                  <p className="text-sm text-gray-400 font-medium mt-1">{exp.ko}</p>
+                <div className="flex-1 overflow-hidden">
+                  <div className="expression-text-container">
+                    <ClickableWord text={exp.en} targetWord={data.word} />
+                  </div>
+                  <p className="text-sm text-gray-400 font-medium mt-1 truncate">{exp.ko}</p>
                 </div>
-                <button className="text-secondary hover:scale-125 transition-transform">
+                <button className="text-secondary hover:scale-125 transition-transform flex-shrink-0">
                   <Volume2 className="w-6 h-6" />
                 </button>
               </div>
