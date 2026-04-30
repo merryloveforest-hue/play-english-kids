@@ -440,6 +440,8 @@ export default function App() {
   const [difficultyMap, setDifficultyMap] = useState<Record<string, 'easy' | 'hard'>>({});
   const [currentWord, setCurrentWord] = useState<WordData>(VOCAB_LIBRARY[0]);
 
+  const [wordIndexWithinLevel, setWordIndexWithinLevel] = useState(0);
+
   const progress = useMemo(() => {
     const phases: Phase[] = ['home', 'intro', 'expressions', 'test', 'activity', 'congrats'];
     return (phases.indexOf(phase) / (phases.length - 1)) * 100;
@@ -450,7 +452,9 @@ export default function App() {
     let word: WordData;
 
     if (selectedMode === 'level') {
-      word = VOCAB_LIBRARY[(userLevel - 1) % VOCAB_LIBRARY.length];
+      const levelWords = VOCAB_LIBRARY.filter(w => w.level === userLevel);
+      // If we finished all words in this level, reset or move to next (handled in handleFinish)
+      word = levelWords[wordIndexWithinLevel % levelWords.length] || levelWords[0];
     } else if (selectedMode === 'random') {
       word = VOCAB_LIBRARY[Math.floor(Math.random() * VOCAB_LIBRARY.length)];
     } else {
@@ -488,7 +492,17 @@ export default function App() {
   };
 
   const handleFinish = () => {
-    if (mode === 'level') setUserLevel(prev => prev + 1);
+    if (mode === 'level') {
+      const levelWords = VOCAB_LIBRARY.filter(w => w.level === userLevel);
+      if (wordIndexWithinLevel + 1 >= levelWords.length) {
+        // Level Up!
+        setUserLevel(prev => prev + 1);
+        setWordIndexWithinLevel(0);
+        alert(`Congratulations! You've reached Level ${userLevel + 1}! 🎉`);
+      } else {
+        setWordIndexWithinLevel(prev => prev + 1);
+      }
+    }
     setPhase('home');
   };
 
