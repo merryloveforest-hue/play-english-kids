@@ -270,12 +270,17 @@ const WordIntro = ({ data, onNext }: { data: WordData, onNext: () => void }) => 
     animate={{ opacity: 1, y: 0 }}
     className="flex flex-col gap-6"
   >
-    <div className="card-bubble flex flex-col items-center gap-4 border-primary">
+    <div className="card-bubble flex flex-col items-center gap-4 border-primary overflow-hidden">
       <div className="w-64 h-48 bg-gray-50 rounded-2xl flex-center text-6xl shadow-inner border-2 border-dashed border-gray-100">
         {/* Fallback emoji/icon since we can't easily add all images */}
-        {data.word === "Sky" ? "☁️" : data.word === "Apple" ? "🍎" : data.word === "Dog" ? "🐶" : data.word === "Sun" ? "☀️" : "🥛"}
+        {data.word === "Sky" ? "☁️" : data.word === "Apple" ? "🍎" : data.word === "Dog" ? "🐶" : data.word === "Sun" ? "☀️" : data.word === "Morning" ? "🌅" : data.word === "Lion" ? "🦁" : "🥛"}
       </div>
-      <h1 className="text-7xl font-black text-primary tracking-widest">
+      <h1 
+        className="font-black text-primary tracking-widest whitespace-nowrap"
+        style={{ 
+          fontSize: data.phonics.text.length > 10 ? '3rem' : data.phonics.text.length > 7 ? '4rem' : '4.5rem' 
+        }}
+      >
         {data.phonics.text.split('-').map((char, i) => (
           <span key={i} className={data.phonics.highlight.includes(char) ? "highlight-phonics" : ""}>
             {char}{i < data.phonics.text.split('-').length - 1 ? '-' : ''}
